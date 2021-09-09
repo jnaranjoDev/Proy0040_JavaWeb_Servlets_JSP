@@ -1,6 +1,9 @@
 package com.curso.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,8 +31,16 @@ public class SaludoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String nombre = request.getParameter("nombre");
-		System.out.println("EL nombre es "+nombre);
-		response.getWriter().append("LA VARIABLE ES:"+nombre);
+		//System.out.println("EL nombre es "+nombre);
+		//response.getWriter().append("LA VARIABLE ES:"+nombre);
+		if(nombre == null) {
+			nombre = "Amigo";
+		}
+		PrintWriter out = response.getWriter();
+		out.print("Hola " + nombre);
+		RequestDispatcher rd = request.getRequestDispatcher("saludo.jsp");
+		request.setAttribute("nombre", nombre);
+		rd.forward(request, response);
 	}
 
 	/**

@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>saludo</title>
 </head>
 <body>
-<h2>Hola personsa</h2>
-</body>
+
+<h2>Hello there!!!!!!!!</h2>
+<p> ${ nombre }
 </html>
